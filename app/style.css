@@ -1,0 +1,111 @@
+/* Neon Shores — Cover Lab: dark editor chrome with a Vice City neon accent pair. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #0d021f;
+  color: #f4efff;
+}
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 14px 22px;
+  background: linear-gradient(90deg, #2b1055, #75135c 55%, #b3123f);
+  border-bottom: 3px solid #ff2e88;
+}
+.brand { font-weight: 900; letter-spacing: 2px; font-size: 20px; }
+.brand span { color: #22d3ee; font-weight: 700; }
+.tag { color: rgba(255,255,255,0.75); font-size: 13px; }
+
+.shell { display: flex; gap: 18px; padding: 18px 22px; align-items: flex-start; }
+
+.controls {
+  width: 300px;
+  flex: 0 0 300px;
+  background: #1a0b38;
+  border: 1px solid #3b1a6e;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.controls h2 { font-size: 13px; letter-spacing: 1.5px; color: #ffd97b; margin: 0 0 8px; }
+.controls label { display: block; font-size: 13px; margin-bottom: 8px; color: rgba(255,255,255,0.85); }
+.controls select, .controls input[type="text"] {
+  width: 100%;
+  margin-top: 4px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  border: 1px solid #4c2a85;
+  background: #0d021f;
+  color: #fff;
+}
+.controls input[type="range"] { width: 100%; accent-color: #ff2e88; }
+.note { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.45; margin: 6px 0 0; }
+
+.fileBtn {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: #22d3ee;
+  color: #06222b !important;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.panelList { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.panelChip {
+  border: 1px solid #4c2a85;
+  background: #0d021f;
+  color: rgba(255,255,255,0.8);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.panelChip.active { background: #ff2e88; border-color: #ff2e88; color: #fff; font-weight: 700; }
+
+.exportBtn {
+  padding: 13px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff2e88, #fb8500);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.stageWrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, #24104d, #0d021f 70%);
+  border-radius: 12px;
+  padding: 18px;
+  min-height: 70vh;
+}
+#stage {
+  max-width: min(100%, 62vh);
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.6);
+  cursor: grab;
+  background: #160a2e;
+}
+
+/* Screenshot mode: one finished cover, full-bleed, nothing else on the page. */
+body.shotCover .topbar, body.shotCover .controls { display: none; }
+body.shotCover .shell { padding: 0; }
+body.shotCover .stageWrap { padding: 0; border-radius: 0; min-height: 0; background: #160a2e; }
+body.shotCover #stage { max-width: none; max-height: none; width: 100vw; height: 100vh; box-shadow: none; cursor: default; }
+
+/* Screenshot mode: the editor, framed a little tighter. */
+body.shotEditor .tag { display: none; }

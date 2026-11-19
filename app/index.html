@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Shores — Cover Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">NEON SHORES <span>· COVER LAB</span></div>
+  <div class="tag">Your photo in. Poster cover out. Nothing leaves this browser.</div>
+</header>
+
+<main class="shell">
+  <aside class="controls">
+    <section>
+      <h2>1 · Photo</h2>
+      <label class="fileBtn">
+        Load your photos
+        <input id="photoIn" type="file" accept="image/*" multiple hidden>
+      </label>
+      <p id="photoNote" class="note">Or drag photos onto the cover. No photo yet? The painted Vice City scenes fill every panel.</p>
+    </section>
+
+    <section>
+      <h2>2 · Layout &amp; grade</h2>
+      <label>Layout <select id="layoutPick"></select></label>
+      <label>Colour grade <select id="gradePick"></select></label>
+      <label>Export size <select id="sizePick"></select></label>
+    </section>
+
+    <section>
+      <h2>3 · Lettering</h2>
+      <label>Title <input id="titleIn" type="text" maxlength="30"></label>
+      <label>Script subtitle <input id="subtitleIn" type="text" maxlength="40"></label>
+      <label>Caption bar <input id="captionIn" type="text" maxlength="48"></label>
+    </section>
+
+    <section>
+      <h2>4 · Panel</h2>
+      <div id="panelList" class="panelList"></div>
+      <label>Scene for this panel <select id="scenePick"></select></label>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.01"></label>
+      <label>Shift X <input id="offX" type="range" min="-1" max="1" step="0.01"></label>
+      <label>Shift Y <input id="offY" type="range" min="-1" max="1" step="0.01"></label>
+      <p class="note">Tip: click a panel on the cover to select it, then drag the picture inside it.</p>
+    </section>
+
+    <button id="exportBtn" class="exportBtn" type="button">Export PNG</button>
+  </aside>
+
+  <section id="stageWrap" class="stageWrap">
+    <canvas id="stage" width="1080" height="1350"></canvas>
+  </section>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
